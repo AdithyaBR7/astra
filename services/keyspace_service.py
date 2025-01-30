@@ -9,7 +9,7 @@ def get_keyspaces():
     try:
         return db_admin.list_keyspaces()
     except Exception as e:
-        print(f"Error fetching keyspaces: {e}")
+        print(f"Error fetching org: {e}")
         return None
 
 def create_keyspace_if_not_exists(org: str):
@@ -18,11 +18,11 @@ def create_keyspace_if_not_exists(org: str):
         return None
 
     if org in keyspaces:
-        return {"message": f"Keyspace '{org}' already exists."}
+        return {"message": f"org '{org}' already exists."}
 
     try:
         db_admin.create_keyspace(org)
-        return {"message": f"Keyspace '{org}' created successfully."}
+        return {"message": f"org '{org}' created successfully."}
     except Exception as e:
-        print(f"Error creating keyspace: {e}")
-        return {"message": f"Error creating keyspace '{org}'."}
+        print(f"Error creating org: {e}")
+        return {"message": f"Error creating org '{org}'."}
