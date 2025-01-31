@@ -1,4 +1,5 @@
 # Astra FastAPI Project
+# python version 3.11
 
 ## Project Overview
 
